@@ -20,9 +20,7 @@ uint64_t fact(uint16_t n) {
 }
 
 double calcItem(double x, uint16_t n) {
-  int chisl = pown(x, n);
-  int znam = fact(n);
-  return (static_cast<double>(chisl) / znam);
+  return pown(x, n) / fact(n);
 }
 
 double expn(double x, uint16_t count) {
