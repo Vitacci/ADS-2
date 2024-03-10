@@ -5,7 +5,10 @@
 
 double pown(double value, uint16_t n) {
   double res = 1.0;
-  for (int i = 0; i < n; ++i) {
+  if (n == 0) {
+    return 1;
+  }
+  for (int i = 1; i <= n; i++) {
       res *= value;
   }
   return res;
