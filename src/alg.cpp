@@ -35,17 +35,23 @@ double expn(double x, uint16_t count) {
 }
 
 double sinn(double x, uint16_t count) {
-  long double sinres = x;
-  for (uint64_t i = 2; i <= count; i++) {
-      sinres += pown(-1.0, i - 1) * calcItem(x, (2 * i) - 1);
+  double sinres = 0.0;
+  double term = x;
+  int sign = 1;
+  for (uint64_t i = 1; i <= count; ++i) {
+  	sinres += sign * term;
+  	sign *= -1;
+  	term = term * x * x / (2 * i) / (2 * i + 1);
   }
   return sinres;
 }
 
 double cosn(double x, uint16_t count) {
-  long double cosres = 1;
-  for (uint64_t i = 2; i <= count; i++) {
-      cosres += pown(-1.0, i - 1) * calcItem(x, (2 * i) - 2);
+  double cosres = 1.0;
+  double term = 1.0;
+  for (uint64_t i = 1; i <= count; ++i) {
+  	term *= -x * x / ((2 * i) * (2 * i - 1));
+  	cosres += term;
   }
   return cosres;
 }
