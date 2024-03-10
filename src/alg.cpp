@@ -39,9 +39,9 @@ double sinn(double x, uint16_t count) {
   double term = x;
   int sign = 1;
   for (uint64_t i = 1; i <= count; ++i) {
-  	sinres += sign * term;
-  	sign *= -1;
-  	term = term * x * x / (2 * i) / (2 * i + 1);
+    sinres += sign * term;
+    sign *= -1;
+    term = term * x * x / (2 * i) / (2 * i + 1);
   }
   return sinres;
 }
@@ -50,8 +50,8 @@ double cosn(double x, uint16_t count) {
   double cosres = 1.0;
   double term = 1.0;
   for (uint64_t i = 1; i <= count; ++i) {
-  	term *= -x * x / ((2 * i) * (2 * i - 1));
-  	cosres += term;
+    term *= -x * x / ((2 * i) * (2 * i - 1));
+    cosres += term;
   }
   return cosres;
 }
